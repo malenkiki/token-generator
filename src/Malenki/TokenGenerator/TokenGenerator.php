@@ -63,7 +63,35 @@ class TokenGenerator
         $this->attachDefault($flavor);
     }
 
-    public function addFormater(string $shortName, string $fqcn)
+    /**
+     * If PHP on which this lib run has not cryptographic function, flavor
+     * could be not load. So, it is good to test in some case if flavor is load internally
+     *
+     * @return boolean
+     */
+    public function hasFlavor() : bool
+    {
+        return (boolean) $this->flavor;
+    }
+
+    /**
+     * Get flavor in use for this instance.
+     *
+     * @return Flavor
+     */
+    public function getFlavor() : Flavor
+    {
+        return $this->flavor;
+    }
+
+    /**
+     * Add not default formater.
+     *
+     * @param string $shortName Short usefull name to mention it
+     * @param string $fqcn Full class name for this formater
+     * @return void
+     */
+    public function addFormater(string $shortName, string $fqcn) : void
     {
         if (array_key_exists($shortName, $this->formaters)) {
             throw new FormaterShortNameAlreadyDefinedException();
@@ -76,6 +104,12 @@ class TokenGenerator
         $this->formaters[$shortName] = $fqcn;
     }
 
+    /**
+     * Generate an object Token using given formater.
+     *
+     * @param string $formater Short name of formater to use to generate the token
+     * @return Token
+     */
     public function run(string $formater = 'hex') : Token
     {
         if (!array_key_exists($formater, $this->formaters)) {
