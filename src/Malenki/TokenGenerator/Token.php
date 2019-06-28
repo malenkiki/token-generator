@@ -76,6 +76,12 @@ class Token
 
     public function __toString()
     {
-        return $this->get();
+        $out = '';
+
+        if ($this->valid()) {
+            $out = $this->get();
+        }
+
+        return $out;
     }
 }
