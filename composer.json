@@ -1,0 +1,24 @@
+{
+    "name": "malenki/token-generator",
+    "type": "library",
+    "description": "Simple hex based token generator, may be used in many tasks as slug, token…",
+    "keywords": ["token","generator", "hex", "slug", "unique"],
+    "homepage": "https://github.com/malenkiki/token-generator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michel Petit",
+            "email": "petit.michel@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Malenki\\TokenGenerator": "src/"
+        }
+    }
+}
+
