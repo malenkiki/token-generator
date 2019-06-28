@@ -34,7 +34,7 @@ In constructor, you may give the byte length you want. If not, default is 32.
 use Malenki\TokenGenerator\TokenGenerator;
 
 $tg = new TokenGenerator(4);
-echo $tg->run(); // the method computing token et returning it
+echo $tg->run(); // the method computing token and returning it
 
 // 791f4dd3 by example
 ```
